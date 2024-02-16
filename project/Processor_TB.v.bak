@@ -1,0 +1,45 @@
+`timescale 1ns / 1ps
+
+module Processor_TB;
+
+	
+	reg [31:0] count;
+	
+	reg clk, rst, switch;
+	
+	reg [15:0] fncode, data;
+
+	wire [15:0] result;
+
+	Process inst_pro(.fncode(fncode), .data(data), .clk(clk), .rst(rst), .switch(switch), .result(result));
+	
+	initial begin 
+		count = 0;
+		clk =1'b1;
+		rst =1'b0;
+	end
+	
+	always begin
+		#50
+		count=count+1;
+	end
+	
+	always begin
+		#25
+		clk = 1'b0;
+		#25
+		clk = 1'b1;
+	end
+	
+	always @(count) begin
+		case (count)
+		0: begin rst = 1'b1; end
+		1: begin rst = 1'b0; end
+		2: begin fncode = ; data = ; switch = ; end
+		
+		default : begin rst = 1'b0; end 
+		endcase
+	end
+
+
+endmodule

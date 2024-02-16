@@ -1,0 +1,2 @@
+Warning (10268): Verilog HDL information at OutputSig.v(30): always construct contains both blocking and non-blocking assignments File: C:/Users/722/Desktop/y3s1/elec2602/final/project/OutputSig.v Line: 30
+Warning (10273): Verilog HDL warning at TriBuf.v(12): extended using "x" or "z" File: C:/Users/722/Desktop/y3s1/elec2602/final/project/TriBuf.v Line: 12

@@ -1,0 +1,16 @@
+module Reg(D, clk, rst, enable, Q);
+	input [15:0] D;
+	input clk, rst, enable;
+	output reg[15:0] Q;
+	
+	always @ (posedge clk or posedge rst) begin
+		if (rst == 1'b1)
+			Q <= 0;
+		else if (enable == 1'b1)
+			Q <= D;
+			
+	end
+	
+	assign result = Q;
+	
+endmodule

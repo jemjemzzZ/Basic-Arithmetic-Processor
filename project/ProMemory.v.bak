@@ -1,0 +1,35 @@
+module ProRam(clk, addr, fncode, data);
+	
+	input clk;
+	
+	input [15:0] addr;
+	
+	output reg [15:0] fncode;
+	output reg [15:0] data;
+	
+	always @(addr) begin
+		case (addr)
+		//load r0 0
+		0: begin fncode = 16'b0000000000000000; data = 16'b0000000000000000; end
+		//load r1 1
+		1: begin fncode = 16'b0000000100000000; data = 16'b0000000000000001; end
+		//load r2 0
+		2: begin fncode = 16'b0000001000000000; data = 16'b0000000000000000; end
+		//ldpc
+		3: begin fncode = 16'b0010000000000000; data = 16'b0000000000000000; end
+		//move r3 r1
+		4: begin fncode = 16'b0001001100010000; data = 16'b0000000000000000; end
+		//add r1 r2
+		5: begin fncode = 16'b0100000100100000; data = 16'b0000000000000000; end
+		//move r0 r1
+		6: begin fncode = 16'b0001000000010000; data = 16'b0000000000000000; end
+		//move r2 r3
+		7: begin fncode = 16'b0001001000110000; data = 16'b0000000000000000; end
+		//move r1 r0
+		8: begin fncode = 16'b0001000100000000; data = 16'b0000000000000000; end
+		//branch
+		9: begin fncode = 16'b0011000000000000; data = 16'b0000000000000000; end
+		endcase
+	end
+	
+endmodule
